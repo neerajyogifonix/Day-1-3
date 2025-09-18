@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Aria Tags</h1>
+
+    <br />
+    <!-- Buttons -->
+    <button aria-pressed="false">Like</button>
+
+    <!-- aria-pressed="true|false|mixed" → toggle button state
+    aria-expanded="true|false" → if button controls a collapsible panel
+    aria-controls="IDREF" → reference controlled element 📂 Disclosure /
+    Accordion -->
+    <button aria-expanded="false" aria-controls="panel1">More Info</button>
+    <div id="panel1" role="region" hidden>...</div>
+
+    <!-- aria-expanded → open/closed state aria-controls → associated panel 📑 Tabs -->
+    <div role="tablist" aria-label="Profile sections">
+      <button role="tab" aria-selected="true" aria-controls="panel1" id="tab1">
+        Overview
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="panel2" id="tab2">
+        Settings
+      </button>
+    </div>
+
+    <div role="tabpanel" id="panel1" aria-labelledby="tab1">...</div>
+    <div role="tabpanel" id="panel2" aria-labelledby="tab2" hidden>...</div>
+
+    <!-- role="tablist" role="tab" with aria-selected="true|false" role="tabpanel"
+    linked with aria-controls & aria-labelledby Menu -->
+    <ul role="menu" aria-label="Options">
+      <li role="menuitem">New File</li>
+      <li role="menuitemcheckbox" aria-checked="true">Show Sidebar</li>
+      <li role="menuitemradio" aria-checked="false">Dark Mode</li>
+    </ul>
+
+    <!-- role="menu", menuitem, menuitemcheckbox, menuitemradio
+    aria-checked="true|false|mixed" 📊 Listbox (Custom Select) -->
+    <div role="listbox" aria-label="Fruit" aria-multiselectable="true">
+      <div role="option" aria-selected="true">Apple</div>
+      <div role="option" aria-selected="false">Banana</div>
+      <div role="option" aria-selected="false">Cherry</div>
+    </div>
+
+    <!-- role="listbox" role="option" with aria-selected="true|false"
+    aria-multiselectable="true" Combobox (Autocomplete) -->
+    <input
+      role="combobox"
+      aria-autocomplete="list"
+      aria-expanded="true"
+      aria-controls="list1"
+      aria-activedescendant="opt2"
+    />
+    <ul id="list1" role="listbox">
+      <li id="opt1" role="option">Red</li>
+      <li id="opt2" role="option">Green</li>
+      <li id="opt3" role="option">Blue</li>
+    </ul>
+
+    <!-- aria-autocomplete="list|inline|both|none" aria-activedescendant → current active option 📈 Slider -->
+    <div
+      role="slider"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="40"
+      aria-valuetext="40 percent"
+    ></div>
+
+    <!-- aria-valuemin, aria-valuemax, aria-valuenow, aria-valuetext ⏳ Progressbar -->
+    <div
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="65"
+    ></div>
+
+    <!-- Checkbox -->
+    <div role="checkbox" aria-checked="mixed" tabindex="0">
+      Enable Notifications
+    </div>
+
+    <!-- Radio Group -->
+    <div role="radiogroup" aria-label="Shipping Method">
+      <div role="radio" aria-checked="true">Standard</div>
+      <div role="radio" aria-checked="false">Express</div>
+    </div>
+
+    <br />
+    <h1>Using geolocation</h1>
+    <br />
+    <p>Click the button below to get the location</p>
+    <button id="geoLocation">Click here</button>
+    <script>
+      let btn = document.getElementById("geoLocation");
+
+      function gotLocation(location) {
+        console.log(location);
+      }
+
+      function failedToGet() {
+        console.log("There was some issue");
+      }
+
+      btn.addEventListener("click", async () => {
+        navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
+      });
+
+      const worker = new Worker("worker.js");
+
+      worker.postMessage(10);
+
+      worker.onmessage = function (event) {
+        console.log("The data received on from the service worker", event.data);
+      };
+    </script>
+  </body>
+</html>
