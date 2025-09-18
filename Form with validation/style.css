@@ -1,0 +1,245 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --form-font : "Poppins", sans-serif;
+}
+
+#mainContainer {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background-color: #f7f7f7;
+}
+
+#formFrame {
+  height: 80%;
+  width: 80%;
+  border-radius: 2vw;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(112, 112, 112, 0.2);
+  display: flex;
+}
+
+.section {
+  height: 100%;
+}
+
+.section1 {
+  background-color: #fed501;
+  width: 40%;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  justify-items: center;
+  align-items: center;
+}
+
+.section1 #imageContainer {
+  margin-top: 5vw;
+  height: 15vw;
+  width: 15vw;
+}
+
+.section1 #imageContainer img {
+  height: 100%;
+  width: 100%;
+}
+
+.section1 #textContent {
+  margin-top: 2vw;
+  align-self: flex-start;
+  color: #373736;
+  padding-top: 2vw;
+}
+
+.section1 #textContent h2 {
+  text-align: center;
+  font-family: var(--form-font);
+  font-weight: 700;
+}
+
+.section1 #textContent p {
+  margin-top: 1vw;
+  text-align: center;
+  font-family: var(--form-font);
+  font-size: small;
+  font-weight: 400;
+  padding: 0 6vw;
+}
+
+.section2 {
+  background-color: beige;
+  width: 60%;
+  padding: 5vw;
+}
+
+.section2 form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.section2 form .fields {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  font-family: var(--form-font);
+  font-size: small;
+  font-weight: 600;
+  color: gray;
+}
+
+.section2 form .fields .fieldName {
+  width: 10vw;
+}
+
+.section2 form .fields input {
+  padding: 0.5vw;
+  width: 20vw;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(235, 235, 235);
+  color: #838383;
+}
+
+.section2 form .fields div span {
+  display: flex;
+  align-items: center;
+}
+
+.section2 form .fields .rdoParent {
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section2 form .fields div span .rdo {
+  width: 1.2vw;
+  margin-right: 0.5vw;
+}
+
+.section2 form .buttons {
+  margin-top: 1vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+}
+
+.section2 form .buttons button {
+  width: 15vw;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: #48e4bd;
+  border: 1px solid #48e4bd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section2 form .buttons button:nth-child(2) {
+  background: none;
+  color: #48e4bd;
+}
+
+.section2 form .buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.section2 form .buttons button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1000px) {
+  #formFrame {
+    flex-direction: column;
+  }
+
+  .section1 {
+    width: 100%;
+    grid-template-rows: 70% 30%;
+  }
+
+  .section1 #imageContainer {
+    height: 28vw;
+    width: 28vw;
+  }
+
+  .section1 #textContent {
+    align-self: flex-start;
+    margin-top: -2vw;
+  }
+
+  .section1 #textContent h2 {
+    font-size: medium;
+  }
+
+  .section1 #textContent p {
+    font-size: x-small;
+    padding: 0 10vw;
+  }
+
+  .section2 {
+    width: 100%;
+    padding: 5vw;
+  }
+
+  .section2 form {
+    gap: 3vw;
+  }
+
+  .section2 form .fields {
+    font-size: small;
+  }
+
+  .section2 form .fields .fieldName {
+    width: 30vw;
+    font-size: smaller;
+  }
+
+  .section2 form .fields .fieldNameU {
+    width: 20vw;
+  }
+
+  .section2 form .fields input {
+    width: 60vw;
+  }
+
+  .section2 form .fields div span .rdo {
+    width: 5vw;
+  }
+
+  .section2 form .fields .rdoParent {
+    width: 10vw;
+  }
+
+  .section2 form .buttons {
+    margin-top: 3vw;
+  }
+
+  .section2 form .buttons button {
+    width: 30vw;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .section2 form .buttons button:nth-child(2) {
+    background: none;
+    color: #48e4bd;
+  }
+}

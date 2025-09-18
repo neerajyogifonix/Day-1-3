@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form with validations</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div id="mainContainer">
+      <!-- Form Frame -->
+      <div id="formFrame">
+        <!-- section 1 -->
+        <section class="section section1">
+          <!-- image container -->
+          <div id="imageContainer">
+            <img src="image2.gif" alt="Person Image" />
+          </div>
+          <!-- text conatiner -->
+          <div id="textContent">
+            <h2>Let's Get Started</h2>
+            <p>
+              It will only take couple of minutes to pair up with everything..!!
+            </p>
+          </div>
+        </section>
+        <!-- section 2 -->
+        <section class="section section2">
+          <!-- form -->
+          <form
+            action=""
+            method="POST"
+            onsubmit="alert('Form Submitted Successfully')"
+          >
+          <!-- fields -->
+            <div class="fields">
+              <label
+                class="fieldName"
+                for="name"
+                title="Name should be only alphabets and between 5-30 letters"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                required
+                name="name"
+                id="name"
+                title="Name should be only alphabets and between 5-30 letters"
+                pattern="[A-Za-z ]{5,30}"
+              />
+            </div>
+            <!-- Gender Field -->
+            <div class="fields">
+              <p class="fieldName fieldNameU" title="Select your gender">
+                Gender
+              </p>
+              <div class="rdoParent">
+                <span>
+                  <input
+                    class="rdo"
+                    type="radio"
+                    required
+                    name="gender"
+                    id="male"
+                    value="male"
+                  />
+                  <label for="male"> Male </label></span
+                >
+
+                <span>
+                  <input
+                    class="rdo"
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                  />
+                  <label for="female"> Female </label>
+                </span>
+
+                <span>
+                  <input
+                    class="rdo"
+                    type="radio"
+                    name="gender"
+                    id="other"
+                    value="other"
+                  />
+                  <label for="Other"> Other </label>
+                </span>
+              </div>
+            </div>
+
+            <div class="fields">
+              <label class="fieldName" for="dob" title="Enter Your DOB">
+                Date Of Birth
+              </label>
+              <input
+                title="Enter your date of birth"
+                type="date"
+                required
+                name="dob"
+                id="dob"
+              />
+            </div>
+            <div class="fields">
+              <label
+                class="fieldName"
+                for="email"
+                title="Enter a valid email address"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                required
+                title="Enter a vaild email address"
+                name="email"
+                id="email"
+                pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+              />
+            </div>
+            <div class="fields">
+              <label
+                class="fieldName"
+                for="mobile"
+                title="Enter a vaild mobile number"
+              >
+                Mobile
+              </label>
+              <input
+                title="Mobile number must be exactly 10 digits"
+                type="text"
+                required
+                name="mobile"
+                id="mobile"
+                maxlength="10"
+                pattern="\d{10}"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+              />
+            </div>
+            <div class="fields">
+              <label
+                class="fieldName"
+                for="customerID"
+                title="Enter your customer id"
+              >
+                Customer ID
+              </label>
+              <input
+                type="text"
+                title="Customer id should be valid containing 8-20 alphabets, numbers and symbols without spaces "
+                required
+                name="customerID"
+                id="customerID"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+              />
+            </div>
+            <!-- buttons -->
+            <div class="buttons">
+              <button type="submit">Submit</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="app.js"></script>
+  </body>
+</html>
